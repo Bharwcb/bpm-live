@@ -80,17 +80,25 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find(params[:id])
-    @beat_array = []
+    @output = []
     i = 0
+    single_layer = {}
     @track.layers.each do |layer|
-      @beat_array << i.to_s
-      i += 1
+      key = i.to_s
       layer.beats.each do |beat|
-        @beat_array << beat.attributes
+        single_layer[key] = {
+          rest: beat.rest,
+          keypress: beat.keypress,
+          color: beat.color
+        }
       end
+      i += 1
+      @output << single_layer
+      single_layer = {}
     end
-    @beat_array
-    render '/tracks/_track', layout: false, json: @beats_array
+    puts "OUTPUT: #{@output}***********************"
+
+    render '/tracks/_track', layout: false
 
     # puts "++++++ hello from DOM click 'play'"
     # puts "TRACKID: #{params[:id]}"

@@ -76,6 +76,7 @@ $(document).ready(function() {
       url: '/tracks',
       data: {'track': tracks, 'name': name},
       method: 'post'
+
     })
   })
 
@@ -86,12 +87,13 @@ $(document).ready(function() {
     var id_of_track_to_play = play_button_clicked.attr('id');
     console.log(id_of_track_to_play);
     $.ajax({
-      url: "/tracks/" + id_of_track_to_play
+      url: "/tracks/" + id_of_track_to_play,
+      data_type: "JSON"
     })
 
     .done(function(response){
       console.log(response);
-      playTracks(response);
+      // playTrack(response);
     })
 
     // find contents of track to play, the array
