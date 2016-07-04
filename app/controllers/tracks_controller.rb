@@ -21,6 +21,7 @@ class TracksController < ApplicationController
     @track = Track.new(name: params[:name])
     respond_to do |format|
       if @track.save
+
         puts "#{@track.id}*******************"
         format.html  { redirect_to(root_path,
                       :notice => 'Post was successfully created.') }
@@ -88,9 +89,9 @@ class TracksController < ApplicationController
         @beat_array << beat.attributes
       end
     end
-    p @beat_array
+    @beat_array
+    render '/tracks/_track', layout: false, json: @beats_array
 
-    render '/tracks/_track', layout: false
     # puts "++++++ hello from DOM click 'play'"
     # puts "TRACKID: #{params[:id]}"
     # track = Track.find(params[:id])

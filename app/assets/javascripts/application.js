@@ -74,7 +74,7 @@ $(document).ready(function() {
     var name = prompt("Your track is lonely! Give it a name.")
     $.ajax({
       url: '/tracks',
-      data: {'track': tracks},
+      data: {'track': tracks, 'name': name},
       method: 'post'
     })
   })
@@ -91,6 +91,7 @@ $(document).ready(function() {
 
     .done(function(response){
       console.log(response);
+      playTracks(response);
     })
 
     // find contents of track to play, the array
