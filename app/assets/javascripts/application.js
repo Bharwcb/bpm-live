@@ -16,6 +16,7 @@
 //= require_tree .
 //= require 'colorFunctions'
 //= require 'musicFunctions'
+//= require 'keypress.js'
 //= require jquery-ui/effect-shake
 var div = ["7","8","9","4","5","6","1","2","3"];
 var loadColors = ["#eafaf1","#d5f5e3","#abebc6","#82e0aa","#58d68d","#2ecc71","#28b463","#239b56","#1d8348"];
@@ -53,6 +54,15 @@ ready = function(){
     unbindKeys();
   })
 
+  // $("#key-7, #key-8, #key-9, #key-6, #key-3, #key-2, #key-1, #key-4, #key-5").hide().each(function(i) {
+  //   $(this).css('background-color', 'black').delay(i*400)
+  //   // setTimeout($("#key-"+div[i]).css('background-color', 'black'), 1000);
+  // });
+
+  // $("7, 8, #key-9, #key-6, #key-3, #key-2, #key-1, #key-4, #key-5").hide().each(function(i) {
+  //   $("#key-"+this).delay(i*400).fadeIn(200);
+  // });
+
   $('#play-track').click(function(event) {
     event.preventDefault();
     console.log(tracks);
@@ -61,9 +71,9 @@ ready = function(){
 
   $('#stop-track').click(function(event) {
     event.preventDefault();
-    // interval = 0;
+    stopSwitch();
+    console.log(stop);
   })
-
 
   // Records a track on click
   $('#record').click(function(event) {
@@ -86,52 +96,51 @@ ready = function(){
 
     // ask for name here?
     var name = prompt("Your track is lonely! Give it a name.")
-
-    console.log(name)
-
     $.ajax({
       url: '/tracks',
-      data: {'track': tracks, 'name': name},
+      data: {'track': tracks},
       method: 'post'
     })
   })
 
   // play track from user profile
   $(".play-track-from-user-profile").click(function(e) {
-    console.log("Play clicked from user profile, prevent default")
     e.preventDefault();
-    var play_button_clicked = $(this)
-    console.log(play_button_clicked);
+    var play_button_clicked = $(this);
+    var id_of_track_to_play = play_button_clicked.attr('id');
+    console.log(id_of_track_to_play);
+    $.ajax({
+      url: "/tracks/" + id_of_track_to_play
+    })
 
-    var id_of_track_to_play = play_button_clicked.attr('id')
-    console.log(play_button_clicked.attr('id'));
-
-
-
+    .done(function(response){
+      console.log(response);
+    })
 
     // find contents of track to play, the array
     // var contents_of_track_to_play =
 
+
     // LASTLY:
     // playTracks( track.contents );
   })
-
   // Loops tracks
   $('#loop-track').click(function(event) {
     event.preventDefault();
-    var self = $(this);
-    self.unbind();
+    var oldInterval = interval;
 
-    playTracks(tracks);
-    var myVar = setInterval(function() {
+    if (looping) {
+      looping = false;
+      clearInterval(trackLoop);
+    }
+    else {
+      interval = oldInterval;
+      looping = true;
       playTracks(tracks);
-    }, interval)
-
-    $('#loop-track').bind('click', function(event){
-      event.preventDefault();
-      loopOff(myVar);
-      $(this).unbind();
-    })
+      trackLoop = setInterval(function() {
+        playTracks(tracks);
+      }, interval)
+    }
   });
 
 };
