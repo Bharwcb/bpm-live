@@ -9,7 +9,7 @@
         <%= track.id  %>
         <%= (track.name != nil) ? "- #{track.name}" : "- no name" %>
         <!-- gave id in link_to so that when click play, JS knows which track to play -->
-        - <%= link_to 'play', root_path, remote: true, class: 'play-track-from-user-profile', :id => track.id %>
+        - <%= link_to 'play', user_path(@tracks), remote: true, class: 'play-track-from-user-profile', :id => track.id %>
       </li>
     <% end %>
   </ul>

@@ -82,11 +82,10 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
     @output = []
     i = 0
-    single_layer = {}
+    single_layer = []
     @track.layers.each do |layer|
-      key = i.to_s
       layer.beats.each do |beat|
-        single_layer[key] = {
+         single_layer << {
           rest: beat.rest,
           keypress: beat.keypress,
           color: beat.color
@@ -94,11 +93,11 @@ class TracksController < ApplicationController
       end
       i += 1
       @output << single_layer
-      single_layer = {}
+      single_layer = []
     end
-    puts "OUTPUT: #{@output}***********************"
 
-    render '/tracks/_track', layout: false
+    puts "OUTPUT: #{@output}***********************"
+    render '/tracks/_track', layout: false, json: @output
 
     # puts "++++++ hello from DOM click 'play'"
     # puts "TRACKID: #{params[:id]}"

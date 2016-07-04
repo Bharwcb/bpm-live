@@ -41,6 +41,7 @@ function playKeypress(key_code, color) {
 }
 
 function playLayer(layer) {
+  // [ {rest: "337", keypress: "51", color: "#7809aa"}, {rest: "337", keypress: "51", color: "#7809aa"}
   var rest = 0;
   for (var i = 0; i < layer.length; i++) {
     var beat = layer[i];
@@ -56,7 +57,7 @@ function playTracks(tracks) {
     playLayer(tracks[i]);
   }
 }
-
+// [{"0"=>{:rest=>"337", :keypress=>"51", :color=>"#7809aa"}}, {"1"=>{:rest=>"337", :keypress=>"51", :color=>"#7809aa"}}]
 function recordBeat(key_code, last_press_timestamp, this_press_timestamp, color) {
   var beat = {
     rest: (this_press_timestamp - last_press_timestamp),
