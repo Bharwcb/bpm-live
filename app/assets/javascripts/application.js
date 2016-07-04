@@ -20,7 +20,10 @@
 var div = ["7","8","9","4","5","6","1","2","3"];
 var loadColors = ["#eafaf1","#d5f5e3","#abebc6","#82e0aa","#58d68d","#2ecc71","#28b463","#239b56","#1d8348"];
 
-$(document).ready(function() {
+// $(document).ready(function() {
+// $(document).on('page:change', function(){
+var ready;
+ready = function(){
 
   $("#key-7, #key-8, #key-9, #key-6, #key-3, #key-2, #key-1, #key-4, #key-5").hide().each(function(i) {
     $(this).delay(i*200).fadeIn(200);
@@ -28,26 +31,26 @@ $(document).ready(function() {
     // setTimeout($("#key-"+div[i]).css('background-color', 'black'), 1000);
   });
 
-  // Return square to black when key is depressed
-  $('body').keyup(function(event) {
-    var element_id = '#key-' + (event.keyCode - 48).toString();
-    // add delay
-    setTimeout(function(){
-      $(element_id).css('background-color', 'black');
-    }, 3000);
+
+    // Return square to black when key is depressed
+    bindKeyUp();
+    // Change box color when key is pressed
+    bindKeyDown();
+
+
+
+
+  // $('.home-link').on('click', function(e){
+  $(document).on('click', '.home-link', function(e){
+    console.log('rebinding keys');
+    console.log(this);
+    rebindKeys();
   })
 
-  // Change box color when key is pressed
-  $('body').keydown(function(event) {
-    var key_code = event.keyCode;
-    var color = randomColor();
-    playKeypress(key_code, color);
-
-    if (recording) {
-      this_press_timestamp = new Date().getTime();
-      recordBeat(key_code, last_press_timestamp, this_press_timestamp, color);
-      last_press_timestamp = this_press_timestamp;
-    }
+  $(document).on('focus', 'input', function(e){
+    console.log('unbind keys');
+    console.log(this);
+    unbindKeys();
   })
 
   $('#play-track').click(function(event) {
@@ -131,8 +134,66 @@ $(document).ready(function() {
     })
   });
 
-});
+};
+$(document).ready(ready);
+$(document).on('turbolinks:change', ready);
 
+function bindKeyUp(){
+  $('body').keyup(function(event) {
+    var element_id = '#key-' + (event.keyCode - 48).toString();
+    // add delay
+    setTimeout(function(){
+      $(element_id).css('background-color', 'black');
+    }, 3000);
+  })
+
+    //  $(document).on('keyup');
+}
+
+// function unbindKeyUp() {
+//
+// }
+
+
+function bindKeyDown(){
+  $('body').keydown(function(event) {
+    var key_code = event.keyCode;
+    var color = randomColor();
+    playKeypress(key_code, color);
+
+    if (recording) {
+      this_press_timestamp = new Date().getTime();
+      recordBeat(key_code, last_press_timestamp, this_press_timestamp, color);
+      last_press_timestamp = this_press_timestamp;
+    }
+  })
+
+    //  $(document).on('keydown');
+}
+
+function unbindKeys(){
+  $(document).unbind('keyup');
+  $(document).unbind('keydown');
+}
+
+function rebindKeys(){
+  // $(document).on('page:load', function(){
+    console.log("hello i am in rbind");
+    console.log(document);
+    $(document).on('keyup');
+    $(document).on('keydown');
+  // bindKeyUp();
+  // bindKeyDown();
+  // })
+}
+
+// $(window).bind('page:load', function(){
+//   rebindKeys();
+// })
+//
+// function unbindKeyDown(){
+//
+// }
 // colorLoop();
 //   //openOverlay();
 // });

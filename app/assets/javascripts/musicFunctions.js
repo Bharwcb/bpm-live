@@ -12,6 +12,22 @@ var last_press_timestamp = null;
 var timer;
 var interval = 0;
 
+// function executeOtherKeys(key_code) {
+//   switch (key_code) {
+//     case 32: //space
+//       break;
+//     case 82: //r
+//       record();
+//       break;
+//     case 85: // u
+//       break;
+//     case 83: // s
+//       break;
+//     case 76: // lr
+//       break;
+//   }
+// }
+
 function playSound(sound_file) {
   var audio = document.createElement("audio");
   audio.src = "/sounds/" + sound_file;
@@ -20,7 +36,10 @@ function playSound(sound_file) {
 }
 
 function playKeypress(key_code, color) {
-  if (key_code < 49 || key_code > 58) { return; }
+  if (key_code < 49 || key_code > 58) {
+    // executeOtherKeys(key_code);
+    return;
+  }
   var sound_file = sound_files[key_code - 49];
   playSound(sound_file);
   showColor(key_code - 48, color);
