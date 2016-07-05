@@ -53,7 +53,7 @@ function playKeypress(key_code, color) {
     // executeOtherKeys(key_code);
     return;
   }
-  var sound_file = sound_files[key_code - 49];
+  var sound_file = mp3_files[key_code - 49];
 
   playSound(sound_file);
   showColor(key_code - 48, color);
