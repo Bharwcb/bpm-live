@@ -151,3 +151,18 @@ nav p {
 body h1, h2, h3, h4, p, th, td, li {
   color: white;
 }
+
+#my_popup {
+  transform: scale(0.8);
+}
+.popup_visible #my_popup {
+  transform: scale(1);
+  background-color: white;
+  line-height: 1;
+  padding: 1em 1.5em 1em 1.5em;
+  border-radius: .5em;
+}
+
+#my_popup h2, p, li {
+  color: black;
+}
