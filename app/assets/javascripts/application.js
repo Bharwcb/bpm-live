@@ -62,6 +62,21 @@ $(document).ready(function() {
   // for overlay of keypress instructions
   displayIntructions();
 
+  // $("#key-7").on('click',function(e){
+  //   e.preventDefault();
+  //   console.log("key-7");
+  //   var key_code = 55;
+  //   var color = randomColor();
+  //   var sound = soundSwitch();
+  //
+  //   if (key_code < 49 || key_code > 58) { return; }
+  //   var sound_file = soundFiles[sound][key_code - 49];
+  //   playSound(sound_file);
+  //   showColor(key_code - 48, color);
+  //   currentSetTimeouts.push(createTimeoutThree(boxChangeBack, key_code - 48, 300));
+  // });
+  // commented out temp to test web sockets
+
   bindClickEvents();
 
   // $('.home-link').on('click', function(e){
@@ -159,6 +174,3 @@ $(document).ready(function() {
   })
 
 });
-
-
-
