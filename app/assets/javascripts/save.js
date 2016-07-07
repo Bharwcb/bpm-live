@@ -25,7 +25,8 @@ function clearCookies() {
 function saveTrack() {
   $("#save").click(function(e) {
     e.preventDefault();
-
+    $(this).css('color', 'gray');
+      setTimeout(function() { $('#save').css('color', 'white'); }, 200);
     console.log("track before function. should be undefined b/c haven't recorded anything");
     console.log(track);
 

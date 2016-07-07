@@ -1,15 +1,4 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
+
 //= require colors
 //= require jquery2
 //= require jquery_ujs
@@ -87,7 +76,8 @@ $(document).ready(function() {
   //   currentSetTimeouts.push(createTimeoutThree(boxChangeBack, key_code - 48, 300));
   // });
   // commented out temp to test web sockets
-  // bindClickEvents();
+
+  bindClickEvents();
 
   // $('.home-link').on('click', function(e){
   $(document).on('click', '.home-link', function(e){
@@ -117,7 +107,6 @@ $(document).ready(function() {
     event.preventDefault();
     stopSwitch();
   })
-
 
   // Removes last track recorded
   $('#undo').click(function(event) {
@@ -149,28 +138,39 @@ $(document).ready(function() {
       })
   })
 
+
   // Loops tracks
   $('#loop-track').click(function(event) {
     event.preventDefault();
-    oldInterval = interval;
-    console.log(oldInterval, "oldInterval");
-
+    // oldInterval = interval;
+    console.log(interval);
+    // console.log(oldInterval, "oldInterval");
     if (looping) {
       console.log(interval, "stopping loop");
       looping = false;
+      loopingColor();
       clearInterval(trackLoop);
       console.log("Looping Stopped")
     }
     else {
-      interval = oldInterval;
+      // interval = oldInterval;
       looping = true;
+      loopingColor();
       console.log(interval, "starting loop");
       console.log("Looping Started")
       playTrack(track);
       trackLoop = setInterval(function() {
+        newInterval();
         playTrack(track);
         console.log(track);
       }, interval)
     }
   });
+
+
+  $('.nav-right').on('click', function() {
+    $(this).css('color', 'gray');
+      setTimeout(function() { $('.nav-right').css('color', 'white'); }, 50);
+  })
+
 });
