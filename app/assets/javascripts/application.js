@@ -81,14 +81,10 @@ $(document).ready(function() {
 
   // $('.home-link').on('click', function(e){
   $(document).on('click', '.home-link', function(e){
-    console.log('EVENT HANDLER - rebinding keys');
-    console.log(this);
     rebindKeys();
   });
 
   $(document).on('focus', 'input', function(e){
-    console.log('EVENT HANDLER - unbind keys');
-    console.log(this);
     unbindKeys();
   });
 
@@ -143,26 +139,19 @@ $(document).ready(function() {
   $('#loop-track').click(function(event) {
     event.preventDefault();
     // oldInterval = interval;
-    console.log(interval);
-    // console.log(oldInterval, "oldInterval");
     if (looping) {
-      console.log(interval, "stopping loop");
       looping = false;
       loopingColor();
       clearInterval(trackLoop);
-      console.log("Looping Stopped")
     }
     else {
       // interval = oldInterval;
       looping = true;
       loopingColor();
-      console.log(interval, "starting loop");
-      console.log("Looping Started")
       playTrack(track);
       trackLoop = setInterval(function() {
         newInterval();
         playTrack(track);
-        console.log(track);
       }, interval)
     }
   });

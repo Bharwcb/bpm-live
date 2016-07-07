@@ -53,7 +53,7 @@ function saveTrack() {
     })
 
     .done(function(response) {
-      // clear cookies and track []'s after save track
+      // clear cookiherokes and track []'s after save track
       clearCookies();
       track = [];
     })

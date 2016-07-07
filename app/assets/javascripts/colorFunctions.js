@@ -95,10 +95,7 @@ function fadeInBorder(id) {
 function createTimeoutThree(f, dynamicParameter, interval) {
   var timer;
   // setTimeout(function() { f(dynamicParameter); }, interval);
-
   timer = setTimeout(function() { f(dynamicParameter); }, interval);
-  console.log("in the 3 param createTimeout, timer:");
-  console.log(timer);
   return timer;
 }
 
