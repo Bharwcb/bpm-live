@@ -86,7 +86,8 @@ $(document).ready(function() {
   //   showColor(key_code - 48, color);
   //   currentSetTimeouts.push(createTimeoutThree(boxChangeBack, key_code - 48, 300));
   // });
-  bindClickEvents();
+  // commented out temp to test web sockets
+  // bindClickEvents();
 
   // $('.home-link').on('click', function(e){
   $(document).on('click', '.home-link', function(e){
