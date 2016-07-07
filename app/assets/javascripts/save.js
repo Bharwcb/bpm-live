@@ -51,7 +51,7 @@ function saveTrack() {
 
     .done(function(response) {
       // clear cookies and track []'s after save track
-      // clearCookies();
+      clearCookies();
       track = [];
     })
   })
