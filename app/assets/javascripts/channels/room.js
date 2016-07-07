@@ -32,9 +32,9 @@ $(document).on('keydown', 'body', function(event) {
   });
 });
 
-$(document).on('click', 'body', function(event) {
-  event.preventDefault;
-  $("#key-1").on('click', function() {
+$(document).ready(function() {
+  $("#key-1").on('click', function(event) {
+    event.preventDefault;
     var keyCode = 49;
     var soundswitch = soundSwitch();
     return App.room.speak({
@@ -43,10 +43,9 @@ $(document).on('click', 'body', function(event) {
       soundswitch: soundswitch
     });
   });
-});
-$(document).on('click', 'body', function(event) {
-  event.preventDefault;
-  $("#key-2").on('click', function() {
+
+  $("#key-2").on('click', function(event) {
+    event.preventDefault
     var keyCode = 50;
     var soundswitch = soundSwitch();
     return App.room.speak({
@@ -55,10 +54,9 @@ $(document).on('click', 'body', function(event) {
       soundswitch: soundswitch
     });
   });
-});
-$(document).on('click', 'body', function(event) {
-  event.preventDefault;
-  $("#key-3").on('click', function() {
+
+  $("#key-3").on('click', function(event) {
+    event.preventDefault
     var keyCode = 51;
     var soundswitch = soundSwitch();
     return App.room.speak({
@@ -67,10 +65,8 @@ $(document).on('click', 'body', function(event) {
       soundswitch: soundswitch
     });
   });
-});
-$(document).on('click', 'body', function(event) {
-  event.preventDefault;
-  $("#key-4").on('click', function() {
+  $("#key-4").on('click', function(event) {
+    event.preventDefault
     var keyCode = 52;
     var soundswitch = soundSwitch();
     return App.room.speak({
@@ -79,10 +75,8 @@ $(document).on('click', 'body', function(event) {
       soundswitch: soundswitch
     });
   });
-});
-$(document).on('click', 'body', function(event) {
-  event.preventDefault;
-  $("#key-5").on('click', function() {
+  $("#key-5").on('click', function(event) {
+    event.preventDefault
     var keyCode = 53;
     var soundswitch = soundSwitch();
     return App.room.speak({
@@ -91,10 +85,8 @@ $(document).on('click', 'body', function(event) {
       soundswitch: soundswitch
     });
   });
-});
-$(document).on('click', 'body', function(event) {
-  event.preventDefault;
-  $("#key-6").on('click', function() {
+  $("#key-6").on('click', function(event) {
+    event.preventDefault
     var keyCode = 54;
     var soundswitch = soundSwitch();
     return App.room.speak({
@@ -103,10 +95,8 @@ $(document).on('click', 'body', function(event) {
       soundswitch: soundswitch
     });
   });
-});
-$(document).on('click', 'body', function(event) {
-  event.preventDefault;
-  $("#key-7").on('click', function() {
+  $("#key-7").on('click', function(event) {
+    event.preventDefault;
     var keyCode = 55;
     var soundswitch = soundSwitch();
     return App.room.speak({
@@ -115,10 +105,8 @@ $(document).on('click', 'body', function(event) {
       soundswitch: soundswitch
     });
   });
-});
-$(document).on('click', 'body', function(event) {
-  event.preventDefault;
-  $("#key-8").on('click', function() {
+  $("#key-8").on('click', function(event) {
+    event.preventDefault;
     var keyCode = 56;
     var soundswitch = soundSwitch();
     return App.room.speak({
@@ -127,10 +115,8 @@ $(document).on('click', 'body', function(event) {
       soundswitch: soundswitch
     });
   });
-});
-$(document).on('click', 'body', function(event) {
+  $("#key-9").on('click', function(event) {
   event.preventDefault;
-  $("#key-9").on('click', function() {
     var keyCode = 57;
     var soundswitch = soundSwitch();
     return App.room.speak({
@@ -140,13 +126,13 @@ $(document).on('click', 'body', function(event) {
     });
   });
 });
-
-
-// # $(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
-// #   if (event.keyCode === 13) {
-// #     App.room.speak(event.target.value);
-// #     event.target.value = '';
-// #     return event.preventDefault();
-// #   }
-// # });
-// #
+//
+//
+// // # $(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
+// // #   if (event.keyCode === 13) {
+// // #     App.room.speak(event.target.value);
+// // #     event.target.value = '';
+// // #     return event.preventDefault();
+// // #   }
+// // # });
+// // #
