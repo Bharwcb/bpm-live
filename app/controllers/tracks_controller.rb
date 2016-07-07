@@ -16,7 +16,7 @@ class TracksController < ApplicationController
 
     track.each do |layer|
       new_layer = @track.layers.build
-      layer.values.each {|beat| new_layer.beats.build(beat) }
+      layer.values.each {|beat| new_layer.beats.build(c) }
     end
 
     respond_to do |format|
