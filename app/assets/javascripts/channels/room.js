@@ -34,75 +34,9 @@ $(document).on('keydown', 'body', function(event) {
 
 $(document).on('click', 'body', function(event) {
   event.preventDefault;
-  var keyCode;
-  var soundswitch = soundSwitch();
-
   $("#key-1").on('click', function() {
     var keyCode = 49;
-    return App.room.speak({
-      keyCode: keyCode,
-      date: Date.now(),
-      soundswitch: soundswitch
-    });
-  });
-  $("#key-2").on('click', function() {
-    var keyCode = 50;
-    return App.room.speak({
-      keyCode: keyCode,
-      date: Date.now(),
-      soundswitch: soundswitch
-    });
-  });
-  $("#key-3").on('click', function() {
-    var keyCode = 51;
-    return App.room.speak({
-      keyCode: keyCode,
-      date: Date.now(),
-      soundswitch: soundswitch
-    });
-  });
-  $("#key-4").on('click', function() {
-    var keyCode = 52;
-    return App.room.speak({
-      keyCode: keyCode,
-      date: Date.now(),
-      soundswitch: soundswitch
-    });
-  });
-  $("#key-5").on('click', function() {
-    var keyCode = 53;
-    return App.room.speak({
-      keyCode: keyCode,
-      date: Date.now(),
-      soundswitch: soundswitch
-    });
-  });
-  $("#key-6").on('click', function() {
-    var keyCode = 54;
-    return App.room.speak({
-      keyCode: keyCode,
-      date: Date.now(),
-      soundswitch: soundswitch
-    });
-  });
-  $("#key-7").on('click', function() {
-    var keyCode = 55;
-    return App.room.speak({
-      keyCode: keyCode,
-      date: Date.now(),
-      soundswitch: soundswitch
-    });
-  });
-  $("#key-8").on('click', function() {
-    var keyCode = 56;
-    return App.room.speak({
-      keyCode: keyCode,
-      date: Date.now(),
-      soundswitch: soundswitch
-    });
-  });
-  $("#key-9").on('click', function() {
-    var keyCode = 57;
+    var soundswitch = soundSwitch();
     return App.room.speak({
       keyCode: keyCode,
       date: Date.now(),
@@ -110,6 +44,103 @@ $(document).on('click', 'body', function(event) {
     });
   });
 });
+$(document).on('click', 'body', function(event) {
+  event.preventDefault;
+  $("#key-2").on('click', function() {
+    var keyCode = 50;
+    var soundswitch = soundSwitch();
+    return App.room.speak({
+      keyCode: keyCode,
+      date: Date.now(),
+      soundswitch: soundswitch
+    });
+  });
+});
+$(document).on('click', 'body', function(event) {
+  event.preventDefault;
+  $("#key-3").on('click', function() {
+    var keyCode = 51;
+    var soundswitch = soundSwitch();
+    return App.room.speak({
+      keyCode: keyCode,
+      date: Date.now(),
+      soundswitch: soundswitch
+    });
+  });
+});
+$(document).on('click', 'body', function(event) {
+  event.preventDefault;
+  $("#key-4").on('click', function() {
+    var keyCode = 52;
+    var soundswitch = soundSwitch();
+    return App.room.speak({
+      keyCode: keyCode,
+      date: Date.now(),
+      soundswitch: soundswitch
+    });
+  });
+});
+$(document).on('click', 'body', function(event) {
+  event.preventDefault;
+  $("#key-5").on('click', function() {
+    var keyCode = 53;
+    var soundswitch = soundSwitch();
+    return App.room.speak({
+      keyCode: keyCode,
+      date: Date.now(),
+      soundswitch: soundswitch
+    });
+  });
+});
+$(document).on('click', 'body', function(event) {
+  event.preventDefault;
+  $("#key-6").on('click', function() {
+    var keyCode = 54;
+    var soundswitch = soundSwitch();
+    return App.room.speak({
+      keyCode: keyCode,
+      date: Date.now(),
+      soundswitch: soundswitch
+    });
+  });
+});
+$(document).on('click', 'body', function(event) {
+  event.preventDefault;
+  $("#key-7").on('click', function() {
+    var keyCode = 55;
+    var soundswitch = soundSwitch();
+    return App.room.speak({
+      keyCode: keyCode,
+      date: Date.now(),
+      soundswitch: soundswitch
+    });
+  });
+});
+$(document).on('click', 'body', function(event) {
+  event.preventDefault;
+  $("#key-8").on('click', function() {
+    var keyCode = 56;
+    var soundswitch = soundSwitch();
+    return App.room.speak({
+      keyCode: keyCode,
+      date: Date.now(),
+      soundswitch: soundswitch
+    });
+  });
+});
+$(document).on('click', 'body', function(event) {
+  event.preventDefault;
+  $("#key-9").on('click', function() {
+    var keyCode = 57;
+    var soundswitch = soundSwitch();
+    return App.room.speak({
+      keyCode: keyCode,
+      date: Date.now(),
+      soundswitch: soundswitch
+    });
+  });
+});
+
 
 // # $(document).on('keypress', '[data-behavior~=room_speaker]', function(event) {
 // #   if (event.keyCode === 13) {
