@@ -126,6 +126,7 @@ $(document).ready(function() {
 
   $('#switch_sounds').click(function(event) {
     event.preventDefault();
+
     switchSounds();
   })
 
@@ -157,12 +158,14 @@ $(document).ready(function() {
     if (looping) {
       console.log(interval, "stopping loop");
       looping = false;
+      loopingColor();
       clearInterval(trackLoop);
       console.log("Looping Stopped")
     }
     else {
       interval = oldInterval;
       looping = true;
+      loopingColor();
       console.log(interval, "starting loop");
       console.log("Looping Started")
       playTrack(track);
@@ -172,4 +175,17 @@ $(document).ready(function() {
       }, interval)
     }
   });
+
 });
+
+
+function loopingColor() {
+  if (looping) {
+    $('#loop-track').css('color', 'yellow');
+    $('#play-track').css('color', 'green');
+  }
+  else {
+    $('#loop-track').css('color', 'white');
+    $('#play-track').css('color', 'white');
+  }
+}
