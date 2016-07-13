@@ -1,11 +1,11 @@
 #BeatsPerMash Live
 
 ##Team Members:
+- Brad Harris
 - Richie Yi
 - Thomas Farr
 - Jacqueline Phan
 - Michael Dumalag
-- Brad Harris
 
 ##User Stories:
 - Main Page
